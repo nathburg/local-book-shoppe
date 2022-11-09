@@ -20,7 +20,7 @@ describe('route tests', () => {
     const res = await request(app).get('/authors');
     expect(res.body.length).toEqual(4);
     const seinfeld = res.body.find(author => author.id === '1');
-    expect(seinfeld).toHaveProperty('name', 'Jerry Seinfeld');;
+    expect(seinfeld).toHaveProperty('name', 'Jerry Seinfeld');
   });
 
   afterAll(() => {
