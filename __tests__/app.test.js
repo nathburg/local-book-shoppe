@@ -29,6 +29,12 @@ describe('route tests', () => {
     expect(res.body.authors.length).toEqual(2);
   });
 
+  it('returns proper author detail at /authors/:id', async () => {
+    const res = await request(app).get('/authors/2');
+    expect(res.body).toHaveProperty('name', 'Arthur C. Clarke');
+    expect(res.body.books.length).toEqual(2);
+  });
+
   afterAll(() => {
     pool.end();
   });
