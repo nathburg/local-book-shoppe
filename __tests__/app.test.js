@@ -3,7 +3,7 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('route tests', async () => {
+describe('route tests', () => {
   beforeEach(() => {
     return setup(pool);
   });
@@ -13,7 +13,7 @@ describe('route tests', async () => {
     expect (res.body.length).toEqual(4);
     const seinLanguage = res.body.find((book) => book.id === '1');
     expect(seinLanguage).toHaveProperty('title', 'SeinLanguage');
-    expect(seinLanguage).toHaveProperty('released', '1993');
+    expect(seinLanguage).toHaveProperty('released', 1993);
   })
 
   afterAll(() => {
