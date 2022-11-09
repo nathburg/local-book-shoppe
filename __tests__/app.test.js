@@ -16,6 +16,13 @@ describe('route tests', () => {
     expect(seinLanguage).toHaveProperty('released', 1993);
   })
 
+  it('should return a list of authors at /authors route', async () => {
+    const res = await request(app).get('/authors');
+    expect(res.body.length).toEqual(4);
+    const seinfeld = res.body.find(author => author.id === '1');
+    expect(seinfeld).toHaveProperty('name', 'Jerry Seinfeld');;
+  });
+
   afterAll(() => {
     pool.end();
   });
